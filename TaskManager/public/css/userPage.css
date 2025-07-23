@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Huninn", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+main {
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.logo-img {
+    width: 30%;
+    float: left;
+    padding-bottom: 40px;
+}
+
+.container {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh
+}
+
+.menu-left {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.menu i {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.fa-sign-out {
+    margin-left: 5px;
+}
+
+.menu > a, .settings a, .create-task {
+    padding: 10px 8px 10px 0;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.menu a:hover {
+    background-color: rgba(243, 243, 243, 0.89);
+    border-radius: 10px;
+
+}
+
+.create-task:hover {
+    background-color: rgba(243, 243, 243, 0.89);
+    border-radius: 10px;
+
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 30px 30px;
+}
+
+.settings a:hover {
+    background-color: rgba(243, 243, 243, 0.89);
+    border-radius: 10px;
+}
+
+.settings a {
+    padding-left: 10px;
+}
+
+.main-content {
+    width: 85%;
+    background-color: #f8f9fe;
+}
+
+
+/*Dashboard*/
+
+.header-calendar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 50px 0 80px 0;
+}
+
+.left-arrow, .right-arrow {
+    border: none;
+    background-color: transparent;
+}
+
+.current-date{
+    font-size: 30px;
+    align-self: center;
+}
+
+.task-container{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.upcoming, .in-progress, .done{
+    width: 330px;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    border: thin solid #f1f5fe;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #e9f2fd;
+    box-shadow: 0 0 10px 2px #f3f1f1;
+}
+
+.upcoming-name {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.column-name {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.task {
+    width: 300px;
+    border: thin solid white;
+    border-radius: 20px;
+    margin: 15px 10px 15px 10px;
+    align-self: center;
+    background-color: white;
+    box-shadow: 0 0 20px 5px rgba(233, 242, 253, 0.88);
+    padding: 10px 10px;
+    transition: box-shadow 0.2s ease;
+
+}
+
+.task:hover {
+    cursor: pointer;
+}
+
+
+.task.dragging {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    opacity: 0.9;
+    transform: scale(1.02);
+    cursor: grabbing;
+}
+
+.task[draggable="true"] {
+    cursor: grab;
+}
+
+.task[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+.scroll-wrapper {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+.task p:not(.task-tag) {
+    padding: 10px 10px 10px 10px;
+}
+
+
+.task-tag {
+    border-radius: 15px;
+    padding: 5px 15px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+#task-line {
+    margin: 10px 10px 0 10px;
+    background-color: #c3c3c3;
+    height: 1px;
+    border: 0;
+}
+
+.task-name {
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.task-descr {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.task-till-date {
+    color: #c3c3c3;
+}
+
+.fa-flag {
+    padding-right: 10px;
+    color: #83838c;
+}
+.fa-flag.overdue {
+    color: #e74c3c;
+}
+
+.progress-column-name {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-column-name > div[data-status] {
+    flex-grow: 1;
+}
+
+
+
+/* Edit/create task pop-up*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    margin: 10% auto;
+    width: 50%;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form input,
+.edit-form textarea {
+    font-size: 16px;
+    margin: 5px 0 5px 0;
+    border-radius: 5px;
+    border-width: thin;
+    padding: 5px 10px 5px 10px;
+    max-width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.edit-form label {
+    margin-top: 10px;
+}
+
+.edit-form button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+    width: auto;
+    margin: 10px auto 0;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+}
+
+#task-till, #task-start {
+    width: 150px;
+
+}
+
+

@@ -1,0 +1,200 @@
+/* 1. Сброс/нормализация браузерных стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Устанавливаем шрифт и фон по умолчанию */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+}
+
+.header-line {
+    background-color:gray
+}
+
+.header-left {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* элементы по краям */
+    align-items: center;
+}
+
+.header-left a {
+    float: left;
+    padding: 12px;
+}
+
+.logo-img {
+    width: 30%;
+    float: left;
+    padding-left: 24px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px; /* расстояние между ссылками */
+    align-items: center; /* вертикальное выравнивание */
+    padding-right: 24px;
+}
+
+.header-right a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.header-right a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.header-right a {
+    border-radius: 4px;
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+/*Login form*/
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.container h1 {
+    margin-bottom: 20px;
+}
+
+.login-form .form-group, .form-group-pswd{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input {
+    padding: 8px;
+    margin: 10px 0 10px;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+.google-btn {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.line-with-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0 20px;
+    font-size: 12px;
+    color: grey;
+}
+
+.remember-chkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+
+}
+
+.line-with-text::before,
+.line-with-text::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid grey;
+}
+
+.line-with-text:not(:empty)::before {
+    margin-right: .75em;
+}
+.line-with-text:not(:empty)::after {
+    margin-left: .75em;
+}
+
+.login-form .login-btn {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    width: auto;
+    margin: 10px auto 0;
+    display: block;
+}
+
+.login-form .register-btn {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    width: auto;
+    margin: 10px auto 0;
+    display: block;
+}
+
+.login-form .register-btn:hover {
+    background-color: #0056b3;
+}
+
+.login-form .login-btn:hover {
+    background-color: #0056b3;
+}
+
+.register-link {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.form-group-pswd{
+    position: relative;
+}
+
+.form-group-pswd i{
+    position: absolute;
+    top: 36px;
+    left: 310px;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.login-link {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+/*.eye-icon {*/
+/*    position: absolute;*/
+/*    right: 10px;*/
+/*    cursor: pointer;*/
+/*    user-select: none;*/
+/*}*/
+
+/*.login-form {*/
+/*    align-items: center;*/
+/*}*/
